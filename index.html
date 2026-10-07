@@ -81,7 +81,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lilac);outline-
 .daily::after{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.5s ease-in-out infinite}
 .daily small{display:block;font-size:14px;font-weight:500;opacity:.95}
 .daily:active{transform:translateY(4px);border-bottom-width:2px}
-.subj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.subj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .subj{border:0;border-radius:26px;padding:14px 6px 12px;color:#fff;text-align:center;border-bottom:6px solid rgba(0,0,0,.2);min-height:128px;box-shadow:inset 0 3px 0 rgba(255,255,255,.25)}
 .subj:active{transform:translateY(4px);border-bottom-width:2px}
 .subj .ic{font-size:42px;line-height:1.1}.subj .nm{font-size:21px;font-weight:600}.subj .pg{font-size:13px;opacity:.95}
@@ -101,7 +101,31 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lilac);outline-
 .st.done{background:var(--sun);border-bottom-color:var(--sun-d);color:#4A2A00}
 .st.lock{background:var(--line);border-bottom-color:var(--line)}
 @media (max-width:520px){.stages{width:100%}.st{flex:1}}
-#play[data-subj="math"]{--theme:var(--pink)}#play[data-subj="he"]{--theme:var(--mint)}#play[data-subj="en"]{--theme:var(--sky)}
+#play[data-subj="math"]{--theme:var(--pink)}#play[data-subj="he"]{--theme:var(--mint)}#play[data-subj="en"]{--theme:var(--sky)}#play[data-subj="nik"]{--theme:#FFC83D}
+#play[data-subj="nik"] .q-card{background:linear-gradient(165deg,#24503F,#143028 70%);border-color:#0C201A;border-top-color:#FFC83D;color:#FFF8E7;box-shadow:inset 0 0 70px rgba(0,0,0,.4),0 12px 24px rgba(10,30,24,.3)}
+#play[data-subj="nik"] .cap{color:#EFE6C9}
+#play[data-subj="nik"] .chip{background:rgba(255,255,255,.12);color:#FFF8E7;border-color:rgba(255,248,231,.35)}
+#play[data-subj="nik"] .chip.on{background:rgba(255,200,61,.3);border-color:#FFC83D}
+#play[data-subj="nik"] .listen-btn{background:#FFC83D;border-bottom-color:#C9941C;color:#2A1B06}
+#play[data-subj="nik"] .where,#play[data-subj="nik"] .feedback{color:var(--ink)}
+.nik-sign{font-size:clamp(88px,25vw,150px);line-height:1.3;font-weight:600;color:#FFF8E7;text-shadow:0 0 22px rgba(255,255,255,.4)}
+.nik-word{font-size:clamp(40px,11vw,66px);line-height:1.9;font-weight:500;color:#FFF8E7}
+.nik-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.blankmark{color:#FFC83D;border-bottom:5px dashed #FFC83D;padding:0 8px;animation:glow 1.2s infinite}
+.ans.nik{font-size:clamp(42px,12vw,62px);font-weight:600;line-height:1.5;padding-bottom:14px}
+.ans.nikname{font-size:clamp(24px,6.5vw,34px);font-weight:600}
+.niks{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:10px;margin-bottom:14px}
+.nikb{min-height:96px;border:0;border-radius:22px;background:linear-gradient(165deg,#2C5A47,#17342B);color:#FFF8E7;border-bottom:6px solid #0C201A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.nikb b{font-size:40px;font-weight:600;line-height:1.2}.nikb span{font-size:14px;opacity:.9}
+.nikb.on{outline:4px solid #FFC83D;outline-offset:2px}
+.nikcard{background:linear-gradient(165deg,#24503F,#143028 70%);border-radius:30px;padding:20px 16px;text-align:center;color:#FFF8E7;border:2px solid #0C201A;box-shadow:inset 0 0 70px rgba(0,0,0,.35)}
+.nikcard .big{font-size:clamp(76px,22vw,120px);line-height:1.3;font-weight:600;text-shadow:0 0 22px rgba(255,255,255,.35)}
+.nikcard h3{margin:4px 0 2px;font-size:26px;font-weight:600;color:#FFC83D}
+.nikcard p{margin:6px auto 0;font-size:18px;line-height:1.6;max-width:420px}
+.nikcard .pic{font-size:46px;line-height:1.2}
+.nikwords{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.nikword{background:rgba(255,255,255,.12);border:2px solid rgba(255,248,231,.3);border-radius:18px;padding:8px 14px;color:#FFF8E7;font-size:24px;font-weight:500;display:flex;align-items:center;gap:8px}
+.nikword small{font-size:22px}
 .dots{display:flex;gap:5px;flex:1;justify-content:center;flex-wrap:wrap}
 .dot{width:13px;height:13px;border-radius:50%;background:var(--line)}.dot.now{background:var(--theme)}.dot.ok{background:var(--mint)}.dot.meh{background:var(--sun)}
 .where{text-align:center;color:var(--ink-soft);margin:4px 0 10px;font-size:17px}
@@ -326,6 +350,7 @@ input,textarea{-webkit-user-select:text;user-select:text}
     <button class="tile" data-go="treasure">🏆<span>אוצרות</span></button>
     <button class="tile" id="chestTile">🎁<span>תיבת הפתעות</span></button>
     <button class="tile" data-go="games">🎮<span>משחקים</span></button>
+    <button class="tile" data-go="niklab">אָ<span>מעבדת הניקוד</span></button>
   </div>
 </section>
 
@@ -457,6 +482,13 @@ input,textarea{-webkit-user-select:text;user-select:text}
   <div class="grid-t" id="recipes"></div>
 </section>
 
+<section class="screen" id="niklab">
+  <header class="bar"><button class="icon-btn" data-go="home" aria-label="חזרה">✕</button><div class="brand">אָ מעבדת הניקוד</div><span style="width:48px"></span></header>
+  <p class="note" style="margin:0 0 10px">לוחצים על סימן ומגלים איך לזכור אותו</p>
+  <div class="niks" id="nikGrid"></div>
+  <div class="nikcard" id="nikCard"></div>
+</section>
+
 <section class="screen" id="games">
   <header class="bar"><button class="icon-btn" data-go="home" aria-label="חזרה">✕</button><div class="brand">🎮 משחקים</div><div class="pill"><span>💎</span><b class="gem-count">0</b></div></header>
   <div id="gameList"></div>
@@ -568,6 +600,30 @@ const NUM_TIPS=[['🍩','אפס עגול כמו דונאט'],['🦄','לחד ק�
 const NUM_COL=['#9B8FB0','#F0569A','#F2684F','#F59E0B','#EAB308','#22C55E','#14B8A6','#3B82F6','#6366F1','#8F6BF2','#D946EF'];
 const NUM_NOTE=[196,262,294,330,349,392,440,494,523,587,659];
 
+const NIK=[
+ {id:'kamatz',name:'קָמָץ',disp:'אָ',snd:'אַה',mark:'ָ',pic:'⚓',tip:'קו ישר ומתחתיו נקודה קטנה, כמו עוגן. אומרים <b>אַה</b>',
+  words:[{w:'דָּג',e:'🐟'},{w:'סָבָא',e:'👴'},{w:'יָד',e:'✋'}]},
+ {id:'patach',name:'פַּתַח',disp:'אַ',snd:'אַה',mark:'ַ',pic:'👄',tip:'רק קו ישר אחד, כמו פה פתוח. גם הוא אומר <b>אַה</b>',
+  words:[{w:'כַּדּוּר',e:'⚽'},{w:'פַּרְפַּר',e:'🦋'},{w:'גַּן',e:'🌳'}]},
+ {id:'chirik',name:'חִירִיק',disp:'אִ',snd:'אִי',mark:'ִ',pic:'💧',tip:'נקודה אחת קטנטנה מתחת לאות, כמו טיפה. אומרים <b>אִי</b>',
+  words:[{w:'פִּיל',e:'🐘'},{w:'סִיר',e:'🍲'},{w:'מִיטָה',e:'🛏️'}]},
+ {id:'tzere',name:'צֵירֵה',disp:'אֵ',snd:'אֵה',mark:'ֵ',pic:'👀',tip:'שתי נקודות זו לצד זו, כמו שתי עיניים. אומרים <b>אֵה</b>',
+  words:[{w:'עֵץ',e:'🌳'},{w:'בֵּיצָה',e:'🥚'},{w:'שֵׁן',e:'🦷'}]},
+ {id:'segol',name:'סֶגוֹל',disp:'אֶ',snd:'אֶה',mark:'ֶ',pic:'🍇',tip:'שלוש נקודות כמו אשכול ענבים הפוך. אומרים <b>אֶה</b>',
+  words:[{w:'דֶּגֶל',e:'🚩'},{w:'פֶּרַח',e:'🌸'},{w:'כֶּלֶב',e:'🐶'}]},
+ {id:'cholam',name:'חוֹלָם',disp:'אֹ',snd:'אוֹ',mark:'ֹ',pic:'🎈',tip:'נקודה אחת שעפה למעלה, כמו בלון. אומרים <b>אוֹ</b>',
+  words:[{w:'דֹּב',e:'🐻'},{w:'חֹל',e:'🏖️'},{w:'אֹכֶל',e:'🍽️'}]},
+ {id:'shuruk',name:'שׁוּרוּק',disp:'אוּ',snd:'אוּ',mark:null,pic:'🤰',tip:'האות ו עם נקודה בבטן. אומרים <b>אוּ</b>',
+  words:[{w:'תּוּת',e:'🍓'},{w:'שׁוּעָל',e:'🦊'},{w:'כּוּס',e:'🥤'}]},
+ {id:'kubutz',name:'קֻבּוּץ',disp:'אֻ',snd:'אוּ',mark:'ֻ',pic:'🪜',tip:'שלוש נקודות באלכסון, כמו מדרגות. גם הוא אומר <b>אוּ</b>',
+  words:[{w:'סֻכָּרִיָּה',e:'🍬'},{w:'שֻׁלְחָן',e:'🪑'},{w:'קֻפְסָה',e:'📦'}]},
+ {id:'shva',name:'שְׁוָא',disp:'אְ',snd:'אְ',mark:'ְ',pic:'🤫',tip:'שתי נקודות זו מעל זו. כמעט לא שומעים אותו, רק רגע קטן של שקט',
+  words:[{w:'זְאֵב',e:'🐺'},{w:'פְּרָחִים',e:'🌷'},{w:'דְּבַשׁ',e:'🍯'}]},
+ {id:'dagesh',name:'דָּגֵשׁ',disp:'בּ',snd:'בּ',mark:null,pic:'💪',tip:'נקודה בתוך האות עצמה. היא נותנת לאות כוח: <b>בּ</b> ולא <b>ב</b>',
+  words:[{w:'בַּיִת',e:'🏠'},{w:'כַּדּוּר',e:'⚽'},{w:'פַּרְפַּר',e:'🦋'}]}];
+const nikOf=id=>NIK.find(x=>x.id===id);
+const NIK_W=[['kamatz','patach','chirik'],['tzere','segol'],['cholam','shuruk','kubutz'],['shva','dagesh'],['kamatz','patach','chirik','tzere','segol','cholam','shuruk','kubutz']];
+
 const SUBJ={
  math:{name:'חשבון',icon:'🔢',bg:'linear-gradient(160deg,#FF86BE,#F0569A)',
   worlds:MATH_W.map(w=>({name:w.name,icon:w.icon,sticker:w.sticker,sname:w.sname,desc:`חיבור וחיסור עד ${w.max}`,stages:['חיבור','חיסור','ערבוב']}))},
@@ -575,6 +631,12 @@ const SUBJ={
   {name:'מילים קצרות',icon:'🐣',sticker:'🐣',sname:'אפרוח קורא',desc:'קוראים מילים קצרות עם ניקוד',stages:['מה בתמונה','קוראים ובוחרים','אות ראשונה']},
   {name:'מילים ארוכות',icon:'🦋',sticker:'📚',sname:'ספרי קסם',desc:'מילים ארוכות יותר',stages:['מה בתמונה','קוראים ובוחרים','אות ראשונה']},
   {name:'משפטים',icon:'✏️',sticker:'🏅',sname:'מדליית קריאה',desc:'משלימים את המילה החסרה',stages:['משפטים','עוד משפטים','ערבוב']}]},
+ nik:{name:'ניקוד',icon:'אָ',bg:'linear-gradient(160deg,#2C6B55,#14433A)',worlds:[
+  {name:'הסימנים הראשונים',icon:'⚓',sticker:'⚓',sname:'עוגן הקמץ',desc:'קמץ, פתח וחיריק',stages:['מכירים','שומעים','משלימים']},
+  {name:'הצליל אֶ ואֵ',icon:'🍇',sticker:'👀',sname:'עיני הצירה',desc:'צירה וסגול',stages:['מכירים','שומעים','משלימים']},
+  {name:'הצליל אוֹ ואוּ',icon:'🎈',sticker:'🎈',sname:'בלון החולם',desc:'חולם, שורוק וקובוץ',stages:['מכירים','שומעים','משלימים']},
+  {name:'שווא ודגש',icon:'🤫',sticker:'🤫',sname:'השקט של השווא',desc:'שווא ודגש',stages:['מכירים','שומעים','משלימים']},
+  {name:'קוראים מילים',icon:'📜',sticker:'🏆',sname:'גביע הניקוד',desc:'קוראים מילים מנוקדות',stages:['קוראים','משלימים','ערבוב']}]},
  en:{name:'English',icon:'🔤',bg:'linear-gradient(160deg,#6AB7FA,#3B82F6)',worlds:[
   {name:'אותיות A-I',icon:'🅰️',sticker:'🍎',sname:'A של זהב',desc:'מכירים את האותיות הראשונות',stages:['שומעים אות','גדולה וקטנה','אות ותמונה']},
   {name:'אותיות J-R',icon:'🪁',sticker:'🪁',sname:'עפיפון',desc:'ממשיכים באלפבית',stages:['שומעים אות','גדולה וקטנה','אות ותמונה']},
@@ -683,10 +745,10 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const skey=id=>'mila-tutor-v2:'+(id||profs.cur);
 const P=n=>({stars:Array.from({length:n},()=>[false,false,false]),best:Array.from({length:n},()=>[0,0,0]),unlocked:0});
 const emptyOutfit=cid=>({hair:cid==='luna'?'hair-mane':null,hairacc:[],jewel:[],glitter:null,eyeshadow:null,lipstick:null,blush:null,outfit:null,bag:null,fur:null,earrings:null});
-function fresh(){return{v:3,enV:2,gems:0,prog:{math:P(9),he:P(3),en:P(5)},cur:'luna',chars:['luna'],owned:['hair-mane','bg-default'],outfits:{luna:emptyOutfit('luna')},bg:'bg-default',
- candies:{},stickers:[],facts:{},stats:{math:{t:0,r:0},he:{t:0,r:0},en:{t:0,r:0}},daily:{last:'',n:0},happy:{luna:60},happyDate:today(),sound:true,voice:false,ach:[],chestDate:'',raceBest:0,pets:{},pantry:{},music:true,recipes:[],blockBest:0,memBest:0,bubBest:0}}
+function fresh(){return{v:3,enV:2,gems:0,prog:{math:P(9),he:P(3),nik:P(5),en:P(5)},cur:'luna',chars:['luna'],owned:['hair-mane','bg-default'],outfits:{luna:emptyOutfit('luna')},bg:'bg-default',
+ candies:{},stickers:[],facts:{},stats:{math:{t:0,r:0},he:{t:0,r:0},nik:{t:0,r:0},en:{t:0,r:0}},daily:{last:'',n:0},happy:{luna:60},happyDate:today(),sound:true,voice:false,ach:[],chestDate:'',raceBest:0,pets:{},pantry:{},music:true,recipes:[],blockBest:0,memBest:0,bubBest:0}}
 function fromRaw(raw){let d=fresh();try{if(raw){const p=JSON.parse(raw);if(!(p.enV>=2)){if(p.prog)p.prog.en=null;p.stickers=(p.stickers||[]).filter(x=>!x.startsWith('en-'));p.enV=2}d=Object.assign(d,p);
-  ['math','he','en'].forEach(k=>{const n=SUBJ[k].worlds.length;d.prog[k]=Object.assign(P(n),(p.prog||{})[k]||{})});
+  Object.keys(SUBJ).forEach(k=>{const n=SUBJ[k].worlds.length;d.prog[k]=Object.assign(P(n),(p.prog||{})[k]||{})});
   d.stats=Object.assign(fresh().stats,p.stats||{});d.daily=Object.assign({last:'',n:0},p.daily||{});}}catch(e){}
  if(!Array.isArray(d.ach))d.ach=[];if(!d.owned.includes('bg-default'))d.owned.push('bg-default');if(!d.bg)d.bg='bg-default';
  d.chars.forEach(c=>{if(!d.outfits[c])d.outfits[c]=emptyOutfit(c);if(d.happy[c]==null)d.happy[c]=60});
@@ -874,7 +936,7 @@ function charSVG(cid,o){const C=CHARS[cid];const k=C.kind,fi=o.fur&&byId(o.fur),
 /* ============ navigation ============ */
 function show(id){if(!st&&id!=='welcome')id='welcome';closeModal();$$('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0);
  if(id==='home'){parentOk=false;renderHome()}if(id==='studio')renderStudio();if(id==='shop')renderShop();if(id==='music')renderMusic();
- if(id==='treasure')renderTreasure();if(id==='parent')renderParent();if(id==='welcome')renderWelcome();if(id==='feed')renderFeed();if(id==='games')renderGames();if(id==='blocks')bkNew();if(id==='memory')memNew();if(id==='bubbles')bubIntro();if(id==='race')renderRace();updateGems()}
+ if(id==='treasure')renderTreasure();if(id==='parent')renderParent();if(id==='welcome')renderWelcome();if(id==='feed')renderFeed();if(id==='niklab')renderNiklab();if(id==='games')renderGames();if(id==='blocks')bkNew();if(id==='memory')memNew();if(id==='bubbles')bubIntro();if(id==='race')renderRace();updateGems()}
 document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){SFX.tap();try{speechSynthesis.cancel()}catch(x){}songStop=true;show(g.dataset.go)}});
 function updateGems(bump){if(!st)return;$$('.gem-count').forEach(el=>{el.textContent=st.gems;if(bump){const p=el.parentElement;p.classList.remove('bump');void p.offsetWidth;p.classList.add('bump')}})}
 const heartsHTML=v=>{const n=Math.round((v||0)/20);return Array.from({length:5},(_,i)=>i<n?'💖':'🤍').join('')};
@@ -894,7 +956,7 @@ function renderHome(){
   (st.happy[st.cur]<40?(tf0?'אני רעבה! יש אוכל במזווה 😋':'אני קצת רעבה... אפשר ממתק? 🍭'):!doneToday?`${come} נעשה את השיעור של היום!`:st.chestDate!==today()?'מחכה לך תיבת הפתעות היום! 🎁':st.gems>=cheapest()?`יש לך ${st.gems} יהלומים! ${come} לסטודיו`:pick([`היי ${N()}! מה נלמד עכשיו?`,`${G('לחצי','לחץ')} עליי ואני ארקוד! 💃`]));
  $('#profChip').innerHTML=`${prof().photo?`<img src="${prof().photo}" alt="">`:CHARS[st.cur].icon} ${esc(N())}`;applyBg($('#homeChar').closest('.stage-card'));$('#chestTile').classList.toggle('ready',st.chestDate!==today());
  $('#homeXp').innerHTML=xpHTML();$('#feedBtn').innerHTML=`🍽️ האכילו את ${cn}${tf0?` <small class="badge">${tf0}</small>`:''}`;if(st.music)startMusic();else stopMusic();
- $('#dailySub').textContent=(doneToday?'✓ הושלם היום! אפשר לשחק שוב':'חשבון, עברית ואנגלית ביחד')+(st.daily.n?` · 🔥 ${st.daily.n} ימים`:'');
+ $('#dailySub').textContent=(doneToday?'✓ הושלם היום! אפשר לשחק שוב':'חשבון, עברית, ניקוד ואנגלית')+(st.daily.n?` · 🔥 ${st.daily.n} ימים`:'');
  $('#homeChips').innerHTML=Object.entries(CHARS).map(([id,c])=>{const own=st.chars.includes(id);
   return `<button class="cchip ${id===st.cur?'on':''}" data-char="${id}" aria-label="${c.name}">${c.icon}${own?'':`<small>💎${c.price}</small>`}</button>`}).join('');
  $('#subjGrid').innerHTML=Object.entries(SUBJ).map(([k,S])=>{const p=st.prog[k],done=p.stars.flat().filter(Boolean).length,tot=S.worlds.length*3;
@@ -981,12 +1043,33 @@ function enStage(w,s,n){n=n||10;
  if(s===0)return fillSeq(COLORS6,n).map(x=>wordQ('pic',x,COLORS6));
  if(s===1)return fillSeq(NUMS10,n).map(x=>wordQ('pic',x,NUMS10));
  return fillSeq([...COLORS6,...NUMS10],n).map(x=>wordQ('listen',x,x.c?COLORS6:NUMS10))}
-function buildStage(sub,w,s,n){return sub==='math'?mathStage(w,s,n):sub==='he'?heStage(w,s,n):enStage(w,s,n)}
+const nikBlank=(w,mark)=>{const i=w.indexOf(mark);if(i<0)return w;let j=i+1;while(w[j]&&/[\u05BC\u05C1\u05C2]/.test(w[j]))j++;return w.slice(0,i)+w.slice(i+1,j)+'<span class="blankmark">?</span>'+w.slice(j)};
+function nikQ(kind,s,group){const diff=NIK.filter(x=>x.id!==s.id&&x.snd!==s.snd);const inGroup=group.filter(x=>x.id!==s.id&&x.snd!==s.snd);const allG=group.filter(x=>x.id!==s.id);const three=()=>shuffle([s,...sample(inGroup.length>=2?inGroup:diff,2)]);const threeN=()=>shuffle([s,...sample(allG.length>=2?allG:NIK.filter(x=>x.id!==s.id),2)]);
+ const base={subj:'nik',key:'n:'+s.id,after:{t:s.snd},afterText:`${s.disp} = ${s.name} · ${s.snd}`};
+ if(kind==='name')return{...base,ans:s.name,prompt:`<div class="nik-sign">${s.disp}</div>`,cap:'איך קוראים לסימן הזה?',say:{t:s.snd},
+  hint:`${s.pic} ${s.tip}`,hintSay:{t:s.name},choices:threeN().map(x=>({v:x.name,h:x.name,c:'nikname'}))};
+ if(kind==='listen')return{...base,ans:s.disp,auto:true,prompt:listenBtn,cap:G('הקשיבו ובחרו את הסימן','הקשב ובחר את הסימן'),say:{t:s.snd,rate:.75},
+  hint:`הסימן הזה נקרא <b>${s.name}</b>. ${s.pic} ${s.tip}`,hintSay:{t:s.snd,rate:.6},choices:three().map(x=>({v:x.disp,h:x.disp,c:'nik'}))};
+ if(kind==='read'){const x=pick(s.words);const pool=NIK.filter(n=>n.id!==s.id);
+  const wrong=[];shuffle(pool).forEach(n=>{if(wrong.length>=2)return;const c=n.words.filter(y=>y.e!==x.e&&!wrong.some(z=>z.e===y.e));if(c.length)wrong.push(pick(c))});
+  return{...base,key:'n:'+s.id+':'+x.w,ans:x.e,prompt:`<div class="nik-word">${x.w}</div>`,cap:G('קראי ובחרי את התמונה','קרא ובחר את התמונה'),say:{t:x.w},
+   hint:`המילה מתחילה בצליל <b>${s.snd}</b>`,hintSay:{t:x.w,rate:.6},after:{t:x.w},afterText:`${x.w} ${x.e}`,
+   choices:shuffle([x,...wrong]).map(o=>({v:o.e,h:o.e,c:'emo'}))}}
+ const x=pick(s.words.filter(w=>s.mark&&w.w.includes(s.mark)))||s.words[0];
+ return{...base,key:'n:'+s.id+':fill',ans:s.disp,prompt:`<div class="emo-mid">${x.e}</div><div class="nik-word">${nikBlank(x.w,s.mark)}</div>`,
+  cap:'איזה ניקוד חסר כאן?',say:{t:x.w},hint:`${s.pic} ${s.tip}`,hintSay:{t:x.w,rate:.6},after:{t:x.w},afterText:`${x.w} ${x.e} · ${s.name}`,
+  choices:three().map(o=>({v:o.disp,h:o.disp,c:'nik'}))}}
+function nikStage(w,s,n){n=n||10;const group=NIK_W[w].map(nikOf);
+ if(w===4){const kinds=s===0?['read']:s===1?['fill']:['read','fill','name','listen'];
+  return fillSeq(group.filter(x=>x.mark||s!==1),n).map(x=>nikQ(pick(kinds),x,group))}
+ const kinds=s===0?['name']:s===1?['listen']:['fill','read'];
+ return fillSeq(group,n).map(x=>nikQ(pick(kinds.filter(k=>k!=='fill'||x.mark)) ,x,group))}
+function buildStage(sub,w,s,n){return sub==='math'?mathStage(w,s,n):sub==='he'?heStage(w,s,n):sub==='nik'?nikStage(w,s,n):enStage(w,s,n)}
 
 /* ============ game engine ============ */
 let game=null;
 function startStage(sub,w,s){game={mode:'stage',subj:sub,w,s,qs:buildStage(sub,w,s),i:0,correct:0,tries:0,earned:0,res:[],lock:false,combo:0,used:{},hints:0};show('play');renderQ()}
-function startDaily(){const qs=[];['math','he','en'].forEach(k=>{const [w,s]=nextTarget(k);qs.push(...buildStage(k,w,k==='math'?2:rnd(0,2),4))});
+function startDaily(){const qs=[];['math','he','nik','en'].forEach(k=>{const [w,s]=nextTarget(k);qs.push(...buildStage(k,w,k==='math'?2:rnd(0,2),3))});
  game={mode:'daily',subj:'mix',qs:shuffle(qs),i:0,correct:0,tries:0,earned:0,res:[],lock:false,combo:0,used:{},hints:0};show('play');renderQ()}
 function frames(n,cls,goneFrom){let h='';for(let f=0;f<Math.ceil(n/10);f++){h+='<div class="frame">';
  for(let k=0;k<10;k++){const i=f*10+k;h+=i<n?`<span class="fd ${cls}${goneFrom!=null&&i>=goneFrom?' gone':''}"></span>`:'<span class="fd empty"></span>'}h+='</div>'}return h}
@@ -1140,6 +1223,7 @@ function renderTreasure(){renderAch();const tot=SHOP.reduce((s,[c])=>s+(st.candi
 /* ============ parent ============ */
 let parentOk=false,gateQ=null,resetArm=false,delArm=false;
 function factLabel(k){if(k.startsWith('m:')){const m=k.match(/^m:(\d+)([+-])(\d+)$/);if(m){const a=+m[1],b=+m[3];return `<span dir="ltr">${a} ${m[2]==='+'?'+':'−'} ${b} = ${m[2]==='+'?a+b:a-b}</span>`}}
+ if(k.startsWith('n:')){const s=nikOf(k.slice(2).split(':')[0]);return 'אָ '+(s?s.name:k)}
  if(k.startsWith('h:'))return '📖 '+k.slice(2).split('|')[0];if(k.startsWith('e:'))return `🔤 <span dir="ltr">${k.slice(2)}</span>`;return k}
 function renderParent(){const Pb=$('#parentBody');resetArm=false;delArm=false;
  if(!parentOk){gateQ=[rnd(6,9),rnd(6,9)];Pb.innerHTML=`<div class="panel"><h3>כניסה להורים</h3><p>כדי להיכנס, כמה זה <span dir="ltr">${gateQ[0]} × ${gateQ[1]}</span>?</p>
@@ -1333,6 +1417,18 @@ $('#pantry').addEventListener('click',e=>{const b=e.target.closest('[data-food]'
   renderPantry();
   renderKitchen();
   setTimeout(()=>{$('#feedMsg').textContent=f.combo?`וואו! ${f.name}! הכי טעים בעולם!!! 🤩✨`:f.id==='cotton'?'וואו! שערות סבתא! טעים טעים טעים!!! 🤩':pick(['טעים!! 💖','טעיםםם! עוד? 😋','יאמי! טעים!']);feeding=false},1000)},720)});
+
+/* ============ nikud lab ============ */
+let nikSel=0;
+function renderNiklab(){$('#nikGrid').innerHTML=NIK.map((s,i)=>`<button class="nikb ${i===nikSel?'on':''}" data-nik="${i}"><b>${s.disp}</b><span>${s.name}</span></button>`).join('');
+ const s=NIK[nikSel];
+ $('#nikCard').innerHTML=`<div class="big">${s.disp}</div><h3>${s.name}</h3><div class="pic">${s.pic}</div><p>${s.tip}</p>
+  <p style="font-size:22px;color:#FFC83D;font-weight:600">הצליל: ${s.snd}</p>
+  <div class="nikwords">${s.words.map(w=>`<button class="nikword" data-word="${w.w}">${w.w}<small>${w.e}</small></button>`).join('')}</div>
+  <p style="font-size:15px;opacity:.85;margin-top:12px">${G('לחצי','לחץ')} על מילה כדי לשמוע אותה</p>`;
+ say({t:s.snd})}
+$('#niklab').addEventListener('click',e=>{const b=e.target.closest('[data-nik]');if(b){SFX.tap();nikSel=+b.dataset.nik;renderNiklab();return}
+ const w=e.target.closest('[data-word]');if(w){bell(1319,0,.1);say({t:w.dataset.word,rate:.75})}});
 
 /* ============ magic kitchen ============ */
 let kit=[null,null];
